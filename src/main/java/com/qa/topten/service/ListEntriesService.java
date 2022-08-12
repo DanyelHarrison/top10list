@@ -32,11 +32,11 @@ public class ListEntriesService {
 		return entries;
 	}
 
-	public Optional<ListEntries> getPlayer(Long id) {
+	public Optional<ListEntries> getEntryById(Long id) {
 		return listEntriesRepo.findById(id);
 	}
 
-	public List<ListEntries> getAllPlayers() {
+	public List<ListEntries> getAllEntries() {
 		return listEntriesRepo.findAll();
 	}
 

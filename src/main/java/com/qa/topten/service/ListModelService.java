@@ -42,6 +42,15 @@ public class ListModelService {
 		return !exists;
 	}
 
+	public ListModel updateEntry(Long id, ListModel newList) {
+		Optional<ListModel> existingOptional = this.listrepo.findById(id);
+		ListModel existing = existingOptional.get();
+
+		existing.setListName(newList.getListName());
+
+		return listrepo.save(existing);
+	}
+
 	public Boolean deleteAllLists() {
 		listrepo.deleteAll();
 		return true;
