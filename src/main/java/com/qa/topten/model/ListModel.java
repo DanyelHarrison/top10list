@@ -33,6 +33,10 @@ public class ListModel {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<ListEntries> listEntries;
 
+	public ListModel() {
+
+	}
+
 	public ListModel(String listName) {
 		super();
 		this.listName = listName;
@@ -77,10 +81,12 @@ public class ListModel {
 		this.listEntries = listEntries;
 	}
 
+//////////////
 	@Override
 	public int hashCode() {
-		return Objects.hash(listName);
+		return Objects.hash(listName, listEntries);
 	}
+/////////////////
 
 	@Override
 	public boolean equals(Object obj) {
@@ -91,7 +97,14 @@ public class ListModel {
 		if (getClass() != obj.getClass())
 			return false;
 		ListModel other = (ListModel) obj;
-		return Objects.equals(listName, other.listName);
+		return Objects.equals(listName, other.listName) && Objects.equals(listEntries, other.listEntries);
+	}
+
+	//////////////
+
+	@Override
+	public String toString() {
+		return "ListModel [ListId=" + ListId + ", listName=" + listName + ", listEntries=" + listEntries + "]";
 	}
 
 }

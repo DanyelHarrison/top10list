@@ -30,6 +30,10 @@ public class ListEntries {
 
 	}
 
+	public ListEntries(String list_entry) {
+		this.list_entry = list_entry;
+	}
+
 	public ListEntries(long entryId, ListModel listModel, String list_entry) {
 		super();
 		this.entryId = entryId;
@@ -76,6 +80,11 @@ public class ListEntries {
 			return false;
 		ListEntries other = (ListEntries) obj;
 		return Objects.equals(listModel, other.listModel) && Objects.equals(list_entry, other.list_entry);
+	}
+
+	@Override
+	public String toString() {
+		return "ListEntries [entryId=" + entryId + ", listModel=" + listModel + ", list_entry=" + list_entry + "]";
 	}
 
 }
