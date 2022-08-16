@@ -24,3 +24,12 @@ LucidChard - ERD/UML diagrams
 Microsoft Excel - Risk Assessment
 
 # Testing
+Testing was done using JUnit and Mockito for Unit Testing, tests were run across different classes and is currently at 73.3% coverage.
+Test Driven development was attempted, however I am not yet comfortable enough with testing to do this effectively, and just led to having to change the tests to suit the functions later down the line. Thankfully I don't plan on being a tester. 
+
+To run the tests, once this repo has been cloned, open it up within your IDE, right click the project and click on Coverage as > Junit Test. this will run all tests and give you a final coverage number.
+
+#Final Remarks
+During this project I definitely took the wrong approach, Instead of starting with an incredibly simple application to meet the MVP and moving from there, I started with a plan which was far too complex, however by the time I had realised my mistake, there was not enough time to feasibly start again.
+
+In future I will make sure to hit MVP as simply as possible, before further developing my projects and adding complexity.
