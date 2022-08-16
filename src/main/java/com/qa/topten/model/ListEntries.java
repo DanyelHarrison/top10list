@@ -11,16 +11,20 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 public class ListEntries {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "entry_id")
 	private long entryId;
 
 	@ManyToOne(targetEntity = ListModel.class, fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_list_id")
+	@Cascade(CascadeType.PERSIST)
 	private ListModel listModel;
 
 	@Column(name = "list_entry", nullable = false)
@@ -34,6 +38,7 @@ public class ListEntries {
 		this.list_entry = list_entry;
 	}
 
+	@Autowired
 	public ListEntries(long entryId, ListModel listModel, String list_entry) {
 		super();
 		this.entryId = entryId;

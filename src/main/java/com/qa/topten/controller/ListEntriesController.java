@@ -22,25 +22,26 @@ import com.qa.topten.model.ListEntries;
 import com.qa.topten.service.ListEntriesService;
 
 @RestController
-@RequestMapping(path = "/ListEntries")
+@RequestMapping(value = "/ListEntries")
 @CrossOrigin
 public class ListEntriesController {
 
 	@Autowired
-	private ListEntriesService listEntriesService;
+	ListEntriesService listEntriesService;
 
+	@Autowired
 	public ListEntriesController(ListEntriesService listEntriesService) {
 		this.listEntriesService = listEntriesService;
 	}
 
-	@GetMapping
+	@GetMapping("/getAll")
 	public ResponseEntity<List<ListEntries>> getAllListEntries() {
 
 		List<ListEntries> data = listEntriesService.readAllEntries();
 		return new ResponseEntity<List<ListEntries>>(data, HttpStatus.OK);
 	}
 
-	@GetMapping("/{entry_id}")
+	@GetMapping("/getbyid/{entry_id}")
 	public ResponseEntity<Optional<ListEntries>> getEntryById(@PathVariable("entry_id") Long id) {
 		Optional<ListEntries> data = listEntriesService.getEntryById(id);
 		return new ResponseEntity<Optional<ListEntries>>(data, HttpStatus.OK);
@@ -53,7 +54,7 @@ public class ListEntriesController {
 		return new ResponseEntity<ListEntries>(listEntries, HttpStatus.CREATED);
 	}
 
-	@PutMapping("/{entry_id}")
+	@PutMapping("/update/{entry_id}")
 	public ResponseEntity<ListEntries> updateEntry(@PathVariable("entry_id") Long id,
 			@RequestBody ListEntries listEntries) {
 
@@ -62,7 +63,7 @@ public class ListEntriesController {
 		return new ResponseEntity<ListEntries>(updatedEntry, HttpStatus.ACCEPTED);
 	}
 
-	@DeleteMapping("/{entry_id}")
+	@DeleteMapping("/delete/{entry_id}")
 	public ResponseEntity<Boolean> deleteEntryById(@PathVariable("entry_id") Long id) {
 		return new ResponseEntity<Boolean>(listEntriesService.removeEntry(id), HttpStatus.NO_CONTENT);
 	}

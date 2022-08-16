@@ -12,10 +12,10 @@ import com.qa.topten.repo.ListEntriesRepo;
 @Service
 public class ListEntriesService {
 
+	@Autowired
 	private ListEntriesRepo listEntriesRepo;
 
 	public ListEntriesService() {
-
 	}
 
 	@Autowired

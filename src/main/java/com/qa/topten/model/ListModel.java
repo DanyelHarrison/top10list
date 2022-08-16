@@ -3,6 +3,7 @@ package com.qa.topten.model;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,10 +27,10 @@ public class ListModel {
 	@Column(name = "list_id")
 	private long ListId;
 
-	@Column(name = "list_name", nullable = false)
+	@Column(name = "list_name")
 	private String listName;
 
-	@OneToMany(mappedBy = "Lists", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "listModel", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<ListEntries> listEntries;
 
@@ -81,12 +82,10 @@ public class ListModel {
 		this.listEntries = listEntries;
 	}
 
-//////////////
 	@Override
 	public int hashCode() {
-		return Objects.hash(listName, listEntries);
+		return Objects.hash(listEntries, listName);
 	}
-/////////////////
 
 	@Override
 	public boolean equals(Object obj) {
@@ -97,10 +96,8 @@ public class ListModel {
 		if (getClass() != obj.getClass())
 			return false;
 		ListModel other = (ListModel) obj;
-		return Objects.equals(listName, other.listName) && Objects.equals(listEntries, other.listEntries);
+		return Objects.equals(listEntries, other.listEntries) && Objects.equals(listName, other.listName);
 	}
-
-	//////////////
 
 	@Override
 	public String toString() {

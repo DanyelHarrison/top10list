@@ -22,7 +22,7 @@ import com.qa.topten.model.ListModel;
 import com.qa.topten.service.ListModelService;
 
 @RestController
-@RequestMapping(path = "/ListModel")
+@RequestMapping(value = "/ListModel")
 @CrossOrigin
 public class ListModelController {
 
@@ -66,7 +66,7 @@ public class ListModelController {
 		return new ResponseEntity<Boolean>(listService.deleteList(id), HttpStatus.NO_CONTENT);
 	}
 
-	@DeleteMapping("/{entry_id}")
+	@DeleteMapping("/deleteAll")
 	public ResponseEntity<Boolean> deleteAllLists() {
 		return new ResponseEntity<Boolean>(listService.deleteAllLists(), HttpStatus.NO_CONTENT);
 	}
