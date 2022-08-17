@@ -3,7 +3,6 @@ package com.qa.topten.model;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,7 +29,7 @@ public class ListModel {
 	@Column(name = "list_name")
 	private String listName;
 
-	@OneToMany(mappedBy = "listModel", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "listModel", fetch = FetchType.LAZY, orphanRemoval = true)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<ListEntries> listEntries;
 

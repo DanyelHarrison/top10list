@@ -2,6 +2,7 @@ package com.qa.topten.model;
 
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
@@ -22,9 +21,8 @@ public class ListEntries {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long entryId;
 
-	@ManyToOne(targetEntity = ListModel.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = ListModel.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_list_id")
-	@Cascade(CascadeType.PERSIST)
 	private ListModel listModel;
 
 	@Column(name = "list_entry", nullable = false)
