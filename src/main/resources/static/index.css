@@ -1,0 +1,158 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color:cadetblue;
+    min-height: 100vh;
+}
+#indexBody{
+    min-height: 100vh;
+}
+
+.dropdown-menu{
+    background-color: #212529;
+}
+
+.dropdown-item:hover{
+    background-color:darkslategray;
+}
+
+.dropdown-item{
+    color: aliceblue;
+}
+nav{
+    font-size: 22px;
+}
+
+.navbar-brand{
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.text-end{
+ margin-right:5%;
+}
+
+/* CSS for list page */
+
+.list-type5{
+    width:410px;
+    margin:0 auto;
+    padding-top: 5%;
+}
+
+.list-type5 ol {
+    list-style-type: none;
+    margin: 0;
+    margin-left: 1em;
+    padding: 0;
+    counter-reset: li-counter;
+}
+
+.list-type5 ol li{
+    position: relative;
+    margin-bottom: 1.5em;
+    padding: 0.5em;
+    background-color: #9ca9cc;
+    padding-left: 58px;
+}
+    
+.list-type5 a{
+    text-decoration:none;
+    color:black;
+    font-size:15px;
+    font-family: 'Raleway', sans-serif;
+}
+    
+.list-type5 li:hover{
+    box-shadow:inset -1em 0 #6CD6CC;
+    -webkit-transition: box-shadow 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: box-shadow 0.5s;
+}
+    
+.list-type5 ol li:before {
+    position: absolute;
+    top: -0.3em;
+    left: -0.5em;
+    width: 1.8em;
+    height: 1.2em;
+    font-size: 2em;
+    line-height: 1.2;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: #6CD6CC;
+    transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    z-index: 99;
+    overflow: hidden;
+    content: counter(li-counter);
+    counter-increment: li-counter;
+}
+
+/*draggable list elements */
+
+.dropzone{
+    cursor:move;
+    user-select: none;
+}
+
+#saveButton{
+    width: 30%;
+}
+
+#createButton{
+    width: 30%;
+}
+
+#createbt{
+    padding-top: 2%;
+    text-align: center;
+}
+#savebt{
+    padding-top: 3%;
+    text-align: center;  
+}
+
+/* Home Page specifics */
+
+#into-text{
+    padding-top: 3%;
+    padding-left: 2%;
+    width: 40%;
+    position: absolute;
+    left:0%;
+}
+
+#right-text{
+    padding-top: 3%;
+    padding-right: 2%;
+    width: 40%;
+    position: absolute;
+    right: 0%;
+    
+}
+
+Footer{
+    position:absolute;
+    bottom: 0;
+    background-color: #212529;
+    padding-top: 11%;
+}
+
+#listy button{
+    all: unset;
+    cursor: pointer;
+    margin-left: 75%;
+}
+
+#listy button:hover{
+    background-color: #a3bfda;
+}
+
+#listName{
+    padding-bottom: 7%;
+    padding-left: 20%;
+}
