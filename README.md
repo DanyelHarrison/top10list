@@ -29,6 +29,9 @@ Test Driven development was attempted, however I am not yet comfortable enough w
 
 To run the tests, once this repo has been cloned, open it up within your IDE, right click the project and click on Coverage as > Junit Test. this will run all tests and give you a final coverage number.
 
+# Building Project
+From within the IDE when the repo has been cloned and imported, right click on the project, and Run As > Maven Build. Once the maven build menu appears, within the goals section, type "complile package" and then run the build. this will leave you with a .Jar file of the project. For bigger projects this might need to be a .fatjar however.
+
 #Final Remarks
 During this project I definitely took the wrong approach, Instead of starting with an incredibly simple application to meet the MVP and moving from there, I started with a plan which was far too complex, however by the time I had realised my mistake, there was not enough time to feasibly start again.
 
